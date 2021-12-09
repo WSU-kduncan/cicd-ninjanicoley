@@ -24,7 +24,7 @@ From there, I followed the tutorial that accompanied the download for docker and
 
 3. How to run the container?
 
-I used the command: docker run -d --name apache1 apacheserver to get the docker image to run in the browser.
+I used the command: docker run -d --name nicoleschool apacheserver to get the docker image to run in the browser.
 
 4. How to view the project? (open a browser, go to ip and port...)
 
@@ -57,6 +57,13 @@ To do this we will go to our settings in github, go to Secrets, new repo secret,
 
    
 4. Configure Github Workflow
-    a. variables to change (repo, etc.)
+
+To configure the gitflow, we would need to change the repository in order to build and push docker images to dockerHub. 
 
 Part 3- Deployment
+
+In order to configure the workflow, we have to start by making a clone of our EC2 instance and build the image onto this. 
+The following commands are how we are going to pull, build the image in the container, and verify that we did not make any mistakes along the way. 
+docker build -t apacheserver
+docker run -d --name nicoleschool apacheserver
+docker exec nicoleschool curl localhost
